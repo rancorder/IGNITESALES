@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IGNITE SALES — 売れる仕組みを、貴社専用に設計する</title>
+<title>IGNITE SALES — 無駄80%を削り、当たる確率を上げる。射出成形・製造業BtoB専用の営業精度設計</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -1057,6 +1057,312 @@
     .profile-card { flex-direction: column; text-align: center; }
     footer { flex-direction: column; gap: 16px; text-align: center; }
   }
+  /* ─────── PROOF SECTION ─────── */
+  .proof {
+    padding: 100px 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .proof-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 60px;
+  }
+
+  .proof-card {
+    border: 1px solid var(--border-strong);
+    background: var(--bg-card);
+    border-radius: 2px;
+    overflow: hidden;
+    text-align: left;
+  }
+
+  .proof-card-header {
+    background: var(--bg-card2);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .proof-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+  }
+  .proof-dot.r { background: #e05030; }
+  .proof-dot.y { background: var(--amber); }
+  .proof-dot.g { background: #3a9a5c; }
+
+  .proof-card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--cream-dim);
+    margin-left: 4px;
+  }
+
+  .proof-card-body {
+    padding: 20px;
+  }
+
+  /* スコアリングリスト */
+  .score-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(232,144,10,0.07);
+    font-size: 13px;
+  }
+  .score-row:last-child { border-bottom: none; }
+
+  .score-rank {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    padding: 2px 8px;
+    border-radius: 1px;
+    min-width: 72px;
+    text-align: center;
+  }
+  .score-rank.s { background: linear-gradient(90deg, var(--amber), var(--ember)); color: var(--bg-deep); }
+  .score-rank.a { background: rgba(232,144,10,0.2); color: var(--amber-light); }
+  .score-rank.b { background: rgba(168,144,112,0.12); color: var(--cream-dim); }
+
+  .score-company { color: var(--cream); flex: 1; }
+  .score-blur { filter: blur(5px); user-select: none; }
+
+  .score-signal {
+    font-size: 11px;
+    color: var(--amber-dim);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .score-pts {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    color: var(--amber-light);
+    min-width: 40px;
+    text-align: right;
+  }
+
+  /* メール返信ログ */
+  .mail-thread {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .mail-bubble {
+    padding: 12px 16px;
+    border-radius: 2px;
+    font-size: 13px;
+    line-height: 1.7;
+    position: relative;
+  }
+
+  .mail-bubble.sent {
+    background: rgba(232,144,10,0.1);
+    border-left: 2px solid var(--amber);
+    color: var(--cream-dim);
+  }
+  .mail-bubble.recv {
+    background: rgba(58,154,92,0.1);
+    border-left: 2px solid #3a9a5c;
+    color: var(--cream);
+  }
+
+  .mail-meta {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--cream-dim);
+    margin-bottom: 6px;
+    opacity: 0.6;
+  }
+
+  .proof-note {
+    font-size: 11px;
+    color: var(--cream-dim);
+    margin-top: 10px;
+    opacity: 0.6;
+    text-align: center;
+  }
+
+  /* ─────── URGENCY BLOCK ─────── */
+  .urgency-block {
+    max-width: 760px;
+    margin: 0 auto 40px;
+    border: 1px solid rgba(192,58,26,0.5);
+    background: rgba(192,58,26,0.06);
+    padding: 28px 36px;
+    text-align: left;
+    position: relative;
+  }
+
+  .urgency-block::before {
+    content: '⚠ 申込前に必ず読んでください';
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--ember-light);
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .urgency-block p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .urgency-block p:last-child { margin-bottom: 0; color: var(--cream-dim); font-size: 13px; }
+
+  .urgency-block strong { color: #ffffff; }
+
+  /* ─────── PRICE HINT ─────── */
+  .price-hint {
+    max-width: 760px;
+    margin: 0 auto 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    padding: 20px 28px;
+  }
+
+  .price-hint-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+
+  .price-hint-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--cream-dim);
+  }
+
+  .price-hint-text strong { color: var(--amber-light); }
+
+  /* ─────── FIT BLOCK（対象 / 非対象） ─────── */
+  .fit-block {
+    max-width: 760px;
+    margin: 0 auto 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .fit-col {
+    padding: 32px 28px;
+  }
+
+  .fit-col.no  { background: rgba(255,255,255,0.02); }
+  .fit-col.yes { background: linear-gradient(135deg, rgba(232,144,10,0.06) 0%, rgba(192,58,26,0.04) 100%); }
+
+  .fit-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .fit-label.no-label  { color: var(--cream-dim); }
+  .fit-label.yes-label { color: var(--amber); }
+
+  .fit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .fit-item:last-child { margin-bottom: 0; }
+  .fit-item.no  { color: var(--cream-dim); }
+  .fit-item.yes { color: var(--cream); }
+  .fit-icon { flex-shrink: 0; margin-top: 2px; }
+
+  /* ─────── STORY BLOCK（通しストーリー） ─────── */
+  .story-block {
+    max-width: 760px;
+    margin: 48px auto 0;
+    border-left: 3px solid var(--amber);
+    padding: 32px 36px;
+    background: var(--bg-card);
+    position: relative;
+  }
+
+  .story-block::before {
+    content: 'STORY — ある企業の話';
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--amber);
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .story-line {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+  .story-line:last-child { margin-bottom: 0; }
+
+  .story-step {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--amber-dim);
+    min-width: 40px;
+    padding-top: 3px;
+    flex-shrink: 0;
+  }
+
+  .story-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--cream-dim);
+  }
+
+  .story-text strong { color: var(--cream); }
+
+  /* ─────── CHOICE LINE（選択圧） ─────── */
+  .choice-line {
+    max-width: 760px;
+    margin: 0 auto 28px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border-top: 1px solid var(--border-strong);
+    border-bottom: 1px solid var(--border-strong);
+    padding: 24px 0;
+  }
+
+  .choice-line em {
+    color: var(--amber-light);
+    font-style: normal;
+  }
+
+  @media (max-width: 900px) {
+    .fit-block { grid-template-columns: 1fr; }
+    .fit-col { padding: 24px 20px; }
+    .story-block { padding: 24px 20px; }
+    .choice-line { font-size: 15px; }
+  }
 </style>
 </head>
 <body>
@@ -1064,42 +1370,42 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">IGNITE<span>SALES</span></a>
-  <a href="#trial" class="nav-cta">無料診断を受ける</a>
+  <a href="#trial" class="nav-cta">リストを今すぐ診断する</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-eyebrow">BtoB営業 タイミング特定 × 言語化 × 構造設計</div>
+  <div class="hero-eyebrow">射出成形・精密板金・樹脂加工メーカーの新規開拓専用 ── 売上を増やす前に、無駄80%を削る</div>
   <h1 class="hero-headline">
-    売れない理由は、当てる<br>
-    <span class="accent">"タイミング"を<br>外しているからだ。</span>
+    架電100件のうち<br>
+    <span class="accent">80件は、今すぐ<br>捨てていい。</span>
   </h1>
   <p class="hero-sub">
-    業種・規模で絞っても反応がない。<br>
-    原因はリストではなく、<strong style="color:var(--amber-light)">タイミング × 言語化 × 構造</strong> の設計にある。<br>
-    貴社専用に、この3つを一気通貫で組み直します。
+    新規開拓がうまくいかない原因は、能力でも商品でもない。<br>
+    <strong style="color:var(--amber-light)">「動いていない企業に当て続けている」</strong>という構造の問題だ。<br>
+    無駄なアプローチを削ることで、当たる確率だけを引き上げる設計が、IGNITE SALESです。
   </p>
   <div class="hero-metrics">
     <div class="metric">
-      <span class="metric-num">8%</span>
-      <span class="metric-label">平均反応率（従来比20倍）</span>
+      <span class="metric-num">80%</span>
+      <span class="metric-label">削減できる無駄アプローチ</span>
     </div>
     <div class="hero-divider"></div>
     <div class="metric">
-      <span class="metric-num">1/5</span>
-      <span class="metric-label">無駄アプローチ削減</span>
+      <span class="metric-num">8%</span>
+      <span class="metric-label">精査後の反応率（業界平均0.4%）</span>
     </div>
     <div class="hero-divider"></div>
     <div class="metric">
       <span class="metric-num">30日</span>
-      <span class="metric-label">初回稼働まで</span>
+      <span class="metric-label">で絞り込まれたリストが動き出す</span>
     </div>
   </div>
   <div class="hero-cta-group">
     <a href="#trial" class="btn-primary">
-      🔥 無料で発注タイミング診断を受ける
+      🔥 無料で現状リストを診断してもらう
     </a>
-    <a href="#solution" class="btn-ghost">サービス詳細を見る →</a>
+    <a href="#solution" class="btn-ghost">仕組みの詳細を見る →</a>
   </div>
   <div class="scroll-hint">
     <div class="scroll-line"></div>
@@ -1112,8 +1418,8 @@
   <div class="urgency-inner">
     <span class="urgency-icon">⚠</span>
     <div class="urgency-text">
-      <strong>発注タイミングは、3ヶ月で消えます。</strong>
-      <span>このシグナルを逃すと、次の機会は半年〜1年後になることが多い。今いる見込み客の中に、すでに"動いている企業"が混在しています。</span>
+      <strong>今この瞬間も、競合があなたのリストにいる企業に接触しています。</strong>
+      <span>発注タイミングは3ヶ月で変わる。先に接触した会社が商談の土俵に上がり、後追いは土俵にすら立てない。</span>
     </div>
     <a href="#trial" class="urgency-cta">今すぐ確認する →</a>
   </div>
@@ -1121,31 +1427,31 @@
 
 <!-- PAIN -->
 <section class="pain reveal">
-  <div class="section-label">現状の課題</div>
-  <h2 class="section-title">「頑張っているのに、当たらない」<br>その本当の理由。</h2>
+  <div class="section-label">問題の本質</div>
+  <h2 class="section-title">「頑張っているのに当たらない」<br>その原因は、無駄の多さだ。</h2>
   <div class="pain-grid">
     <div class="pain-card">
       <span class="pain-icon">🎯</span>
-      <h3>タイミングを外している</h3>
-      <p>発注意欲が動いていない企業に当たり続けている。同じ相手でも「3ヶ月後」に接触すれば8倍以上の確率で商談になる。</p>
+      <h3>発注意欲のない企業に当て続けている</h3>
+      <p>100件架電しても2〜3件しか反応がない。問題はリストの量ではなく、「今動いていない企業に当て続けている」こと。無駄な接触が多いほど、当たる確率は下がっていく。</p>
     </div>
     <div class="pain-card">
       <span class="pain-icon">📄</span>
-      <h3>言葉が相手に届いていない</h3>
-      <p>汎用トークでは担当者の心が動かない。「今、この会社が抱えている課題」に刺さる言語化ができていない。</p>
+      <h3>相手の状況と関係ない言葉を使っている</h3>
+      <p>「品質が高い」「対応が早い」──それは全社が言っている言葉だ。担当者が反応するのは、「今自分が困っていることに重なる言葉」だけ。一般的な言葉は、無駄なアプローチと同じだ。</p>
     </div>
     <div class="pain-card">
       <span class="pain-icon">⚡</span>
-      <h3>プロセスが構造化されていない</h3>
-      <p>エース社員の勘に頼る営業では再現できない。「誰でも動ける構造」がなければ、組織の営業力は上がらない。</p>
+      <h3>なぜ当たったのか、説明できない</h3>
+      <p>うまくいくときと外れるときの差がわからない。再現できない営業は、改善もできない。同じ無駄を繰り返すだけになる。</p>
     </div>
   </div>
 </section>
 
 <!-- SOLUTION -->
 <section class="solution reveal" id="solution">
-  <div class="section-label">解決策</div>
-  <h2 class="section-title">ヒアリングから設計する、<br>貴社専用の営業インフラ。</h2>
+  <div class="section-label">仕組みの構造</div>
+  <h2 class="section-title">無駄を削ると、<br>当たる確率だけが残る。</h2>
   <div class="solution-layout">
     <div class="solution-visual">
       <div class="sol-ring"></div>
@@ -1160,22 +1466,22 @@
       <div class="step">
         <span class="step-num">01</span>
         <div class="step-content">
-          <h4>発注タイミング特定</h4>
-          <p>業界動向・採用・決算・ニュースを複合分析し、"今動いている企業"だけを判断。単なるデータ抽出ではなく、発注意欲のシグナルを根拠に優先順位を設計します。</p>
+          <h4>無駄なアプローチを特定して削る</h4>
+          <p>業界動向・採用・決算・ニュースを複合分析し、「今動いていない企業」をリストから除外する。186社のうち71社への無駄な接触がなくなる。残った115社への集中が、反応率を上げる。</p>
         </div>
       </div>
       <div class="step">
         <span class="step-num">02</span>
         <div class="step-content">
-          <h4>言語化設計（スクリプト）</h4>
-          <p>強み・実績・顧客の痛点をヒアリングし、「今この相手に刺さる言葉」だけで構成した電話・メール・訪問スクリプトを一気通貫で構築。</p>
+          <h4>相手の状況と噛み合わない言葉を捨てる</h4>
+          <p>強み・実績・顧客の痛点をヒアリングし、汎用トークを専用スクリプトに置き換える。「全社が言っている言葉」をやめるだけで、同じ相手への反応率が変わってくる。</p>
         </div>
       </div>
       <div class="step">
         <span class="step-num">03</span>
         <div class="step-content">
-          <h4>営業構造設計</h4>
-          <p>初回接触から受注までのプロセスをフロー化。説得ではなく"確認の会話"で進む構造を設計し、誰でも再現できる営業の型を組織に定着させます。</p>
+          <h4>無駄が減った分、精度だけが上がっていく</h4>
+          <p>接触する企業を絞り、言葉を相手に合わせ、フローを構造化する。受注を保証するものではないが、無駄打ちが消えた営業は、同じリソースで当たる確率が上がる。結果として受注率も改善しやすくなる。</p>
         </div>
       </div>
     </div>
@@ -1184,62 +1490,62 @@
 
 <!-- DIFFERENCE -->
 <section class="diff reveal">
-  <div class="section-label">従来との違い</div>
-  <h2 class="section-title">"当てる相手"より、<br>"当てるタイミング"が勝敗を決める。</h2>
+  <div class="section-label">ビフォーアフター</div>
+  <h2 class="section-title">削れる無駄を削ると、<br>営業の景色が変わる。</h2>
   <div class="diff-table">
     <div class="diff-col before">
-      <div class="diff-tag before-tag">BEFORE ─ 従来の営業支援</div>
-      <div class="diff-item bad"><span class="icon">✗</span><span>業種・規模で絞った一斉送付</span></div>
-      <div class="diff-item bad"><span class="icon">✗</span><span>タイミングを無視したアプローチ</span></div>
-      <div class="diff-item bad"><span class="icon">✗</span><span>テンプレートスクリプトの流用</span></div>
-      <div class="diff-item bad"><span class="icon">✗</span><span>反応率0.3〜0.5%／属人的な成果</span></div>
-      <div class="diff-item bad"><span class="icon">✗</span><span>納品したら終わり</span></div>
+      <div class="diff-tag before-tag">BEFORE ─ 無駄が多い状態</div>
+      <div class="diff-item bad"><span class="icon">✗</span><span>100件架電 → 反応2件、残り98件は無駄打ち</span></div>
+      <div class="diff-item bad"><span class="icon">✗</span><span>感覚でリストを作り、感覚で優先度を決める</span></div>
+      <div class="diff-item bad"><span class="icon">✗</span><span>全社に同じ文面を送る、返信率0.3〜0.5%</span></div>
+      <div class="diff-item bad"><span class="icon">✗</span><span>なぜ当たったのか説明できない、改善できない</span></div>
+      <div class="diff-item bad"><span class="icon">✗</span><span>無駄な接触を繰り返し、疲弊だけが積み上がる</span></div>
     </div>
     <div class="diff-divider">
       <span class="diff-arrow">IGNITE SALES</span>
     </div>
     <div class="diff-col after">
-      <div class="diff-tag after-tag">AFTER ─ IGNITE SALES</div>
-      <div class="diff-item good"><span class="icon">✦</span><span>複合シグナルで発注タイミングを特定</span></div>
-      <div class="diff-item good"><span class="icon">✦</span><span>アプローチ優先企業を根拠ベースで設計</span></div>
-      <div class="diff-item good"><span class="icon">✦</span><span>貴社の強みを言語化した専用スクリプト</span></div>
-      <div class="diff-item good"><span class="icon">✦</span><span>組織で再現できる営業構造設計</span></div>
-      <div class="diff-item good"><span class="icon">✦</span><span>定着まで伴走サポート</span></div>
+      <div class="diff-tag after-tag">AFTER ─ 無駄が削られた状態</div>
+      <div class="diff-item good"><span class="icon">✦</span><span>20件に絞り架電 → 工数は1/5、反応率は上がりやすい</span></div>
+      <div class="diff-item good"><span class="icon">✦</span><span>複合シグナルで「今動いている企業」だけを残す</span></div>
+      <div class="diff-item good"><span class="icon">✦</span><span>相手の状況に合わせたスクリプト、反応率8%（参考値）</span></div>
+      <div class="diff-item good"><span class="icon">✦</span><span>フロー化で「なぜ当たったか」が言語化できる状態に</span></div>
+      <div class="diff-item good"><span class="icon">✦</span><span>無駄が減り、同じ工数で当たる確率が高い接触だけになる</span></div>
     </div>
   </div>
 </section>
 
 <!-- PACKAGE -->
 <section class="package reveal">
-  <div class="section-label">提供パッケージ</div>
-  <h2 class="section-title">判断・言語化・構造。<br>3つが揃って初めて動く。</h2>
+  <div class="section-label">具体的に何が手に入るか</div>
+  <h2 class="section-title">無駄を削る設計が揃うと、<br>営業リソースの使い方が変わる。</h2>
   <div class="package-grid">
     <div class="pkg-card">
       <span class="pkg-num">01</span>
       <div class="pkg-icon">🔍</div>
-      <h3>発注タイミング特定</h3>
-      <p>業界動向・採用・財務・SNS・ニュースを複合分析。今すぐアプローチすべきアプローチ優先企業を50〜100社、根拠付きで特定します。</p>
+      <h3>「無駄を除外したアプローチリスト」</h3>
+      <p>候補100〜200社を複合シグナルでスコアリング。動いていない企業を除外し、優先30〜50社に絞り込む。「どこに当てるか」で迷う時間と無駄な接触が減る。</p>
       <span class="pkg-tag">TIMING × SIGNAL</span>
     </div>
     <div class="pkg-card">
       <span class="pkg-num">02</span>
       <div class="pkg-icon">💬</div>
-      <h3>言語化設計（スクリプト）</h3>
-      <p>電話・メール・訪問の3チャネルに対応。「今この企業が抱えている課題」に刺さる言葉だけで構成した専用スクリプトをゼロから構築。</p>
+      <h3>「相手の状況に合わせたスクリプト」</h3>
+      <p>電話・メール・訪問の3チャネル対応。汎用トークを捨て、相手企業の状況に合わせた文言で構成。「全社が言っている言葉」による無駄な接触が減る。</p>
       <span class="pkg-tag">LANGUAGE × COPY</span>
     </div>
     <div class="pkg-card">
       <span class="pkg-num">03</span>
       <div class="pkg-icon">🗺️</div>
-      <h3>アプローチ優先設計</h3>
-      <p>誰に・いつ・どのチャネルで当たるかを根拠ベースで設計。チームが迷わず動ける優先順位と行動計画を提供します。</p>
+      <h3>「誰に・いつ・どの順で当てるか」の優先設計</h3>
+      <p>優先順位と接触チャネルを根拠ベースで設計。「とりあえず全部当てる」という無駄な動きがなくなり、チーム全員が同じ基準で動ける状態になる。</p>
       <span class="pkg-tag">PRIORITY × PLAN</span>
     </div>
     <div class="pkg-card">
       <span class="pkg-num">04</span>
       <div class="pkg-icon">⚙️</div>
-      <h3>営業構造設計</h3>
-      <p>初回接触〜クロージングまでをフロー化。説得ではなく"確認の会話"で進む構造を設計し、誰もが再現できる営業の型を組織に定着させます。</p>
+      <h3>「なぜ当たったか説明できる営業フロー」</h3>
+      <p>初回接触〜商談までをフロー化。なぜ当たったか・外れたかが言語化できるようになる。再現できない無駄な営業から、改善できる営業に変わる。</p>
       <span class="pkg-tag">STRUCTURE × SYSTEM</span>
     </div>
   </div>
@@ -1247,67 +1553,67 @@
 
 <!-- RESULT -->
 <section class="result reveal">
-  <div class="section-label">期待できる成果</div>
-  <h2 class="section-title">タイミングが合うと、<br>営業は"説得"から"確認"になる。</h2>
+  <div class="section-label">実データで見る変化</div>
+  <h2 class="section-title">営業の"ムダ打ち"が消え、<br>同じリソースで当たる確率だけが上がる。</h2>
   <div class="result-grid">
     <div class="result-item">
-      <div><span class="result-num">8</span><span class="result-unit">%</span></div>
-      <div class="result-label">平均反応率<br><small style="font-size:11px;color:rgba(168,144,112,0.5)">タイミングが合うため、相手がすでに動いている</small></div>
+      <div><span class="result-num">80</span><span class="result-unit">%</span></div>
+      <div class="result-label">削減できる無駄アプローチ<br><small style="font-size:11px;color:rgba(168,144,112,0.5)">186社→115社。動いていない71社への接触をゼロにした実績値</small></div>
     </div>
     <div class="result-item">
-      <div><span class="result-num">1/5</span></div>
-      <div class="result-label">営業工数<br><small style="font-size:11px;color:rgba(168,144,112,0.5)">優先企業だけに絞るため、消耗しない</small></div>
+      <div><span class="result-num">8</span><span class="result-unit">%</span></div>
+      <div class="result-label">精査後の反応率（参考値）<br><small style="font-size:11px;color:rgba(168,144,112,0.5)">業界平均0.4%。無駄を削った先の反応率。成果を保証するものではありません</small></div>
     </div>
     <div class="result-item">
       <div><span class="result-num">30</span><span class="result-unit">日</span></div>
-      <div class="result-label">初回稼働<br><small style="font-size:11px;color:rgba(168,144,112,0.5)">ヒアリング完了後、最短で動き始められる</small></div>
+      <div class="result-label">設計完了〜稼働開始<br><small style="font-size:11px;color:rgba(168,144,112,0.5)">ヒアリング完了後、最短30日で絞り込まれたリストが動き出す</small></div>
     </div>
   </div>
 </section>
 
 <!-- FLOW -->
 <section class="flow reveal">
-  <div class="section-label">ご利用の流れ</div>
-  <h2 class="section-title">診断から稼働まで、<br>最短30日。</h2>
+  <div class="section-label">導入の流れ</div>
+  <h2 class="section-title">申込から30日で、<br>無駄の少ない営業が動き出す。</h2>
   <div class="flow-steps">
     <div class="flow-step">
       <div class="flow-num">01</div>
-      <h4>無料診断申込</h4>
-      <p>フォームから申込。30分で現状の営業課題を整理します。</p>
+      <h4>無料診断（30分）</h4>
+      <p>今のリストを持参。「当たる可能性がある企業・今は無駄な企業」の仕分け基準をその場で提示します。</p>
     </div>
     <div class="flow-step">
       <div class="flow-num">02</div>
       <h4>ヒアリング</h4>
-      <p>強み・課題・ターゲットを徹底的に聞き取ります。</p>
+      <p>強み・過去の接触パターン・ターゲット仮説を聞き取る。「どこが無駄になっているか」を整理します。</p>
     </div>
     <div class="flow-step">
       <div class="flow-num">03</div>
       <h4>設計・構築</h4>
-      <p>タイミング特定・言語化・構造設計を並行して制作。</p>
+      <p>リストスコアリング・スクリプト・アプローチフローを並行構築。「無駄を削った状態」を作ります。</p>
     </div>
     <div class="flow-step">
       <div class="flow-num">04</div>
-      <h4>納品・レクチャー</h4>
-      <p>使い方のレクチャーと定着支援で実行まで伴走します。</p>
+      <h4>納品・実行支援</h4>
+      <p>渡して終わりではない。チームが実際に動ける状態になるまで伴走します。</p>
     </div>
     <div class="flow-step">
       <div class="flow-num">05</div>
-      <h4>PDCA・改善</h4>
-      <p>結果を見ながらシグナルとスクリプトを継続改善。</p>
+      <h4>反応を見て精度を上げる</h4>
+      <p>反応ログをもとにリストとスクリプトを更新。打ちながら無駄が減り、精度が上がっていく状態になります。</p>
     </div>
   </div>
 </section>
 
 <!-- PROFILE -->
 <section class="section reveal" id="profile">
-  <div class="section-eyebrow">Who — 運営者について</div>
-  <h2 class="section-title">止まってる案件、<br><span class="accent">動かす人。</span></h2>
+  <div class="section-eyebrow">Who — この設計を作った人</div>
+  <h2 class="section-title">18年間、製造業の<br><span class="accent">無駄な営業を見続けてきた。</span></h2>
   <div class="profile-wrap">
     <div class="profile-card">
       <div class="profile-avatar">M</div>
       <div class="profile-info">
         <p class="profile-name">増部 秀樹 <span class="profile-en">Hideki Masube</span></p>
-        <p class="profile-title">開発シグナル×発注タイミング特定｜製造業営業を構造から変える</p>
+        <p class="profile-title">無駄削減×アプローチ精度設計｜製造業の新規開拓を構造から変える</p>
         <p class="profile-location">日本 · 広島県</p>
         <a href="https://www.linkedin.com/in/hideki-masube-6b0a713a0/" target="_blank" class="profile-linkedin">LinkedIn プロフィール →</a>
       </div>
@@ -1327,54 +1633,151 @@
       </div>
     </div>
     <div class="profile-quote">
-      <p>「プロジェクトや商品は、技術では失敗しません。<br>失敗する理由は、<strong>意思決定が進まない</strong>ことです。」</p>
+      <p>「100件当てて2件しか反応がない。<br>その原因は、相手ではなく<strong>98件が無駄打ちになっている</strong>ことです。」</p>
     </div>
     <div class="profile-body">
-      <p>製造業の営業現場を18年見てきて気づいたことがあります。技術力のある会社ほど、「タイミング」と「言葉」を外して受注を逃している。</p>
-      <p>同じ会社・同じ製品でも、発注が動くシグナルを掴んで、その企業に刺さる言葉で当たれば、商談率は劇的に変わります。現場で10社の新規口座を開設し、累計10億円以上の売上をつくった経験から、その「設計」を体系化しました。</p>
-      <p>現在は製造業専門の営業PMOとして複数社を支援しながら、IGNITE SALESを通じて同じ仕組みを広げています。</p>
+      <p>製造業の営業現場を18年見てきてわかったことがあります。新規開拓がうまくいかない会社は、技術でも価格でも負けていない。「動いていない企業に当て続けている」という無駄の多さが問題です。</p>
+      <p>同じ会社・同じ製品でも、動いている企業に絞ってアプローチすれば、反応率は上がりやすくなります。受注を保証できるものではありませんが、無駄が減れば、当たる確率は変わります。この設計を体系化したのが、IGNITE SALESです。</p>
+      <p>現在も製造業専門の営業PMOとして複数社にこの仕組みを展開中です。今この瞬間も、無駄を削ったリストで担当者が架電しています。</p>
     </div>
   </div>
 </section>
 
 <!-- RESULTS -->
 <section class="section reveal" id="results">
-  <div class="section-eyebrow">Results — 営業支援実績</div>
-  <h2 class="section-title">構造を変えると、<br><span class="accent">営業の動き方が変わる。</span></h2>
-  <p class="results-lead">業種を問わず「営業の設計がない」という課題は共通しています。以下はその設計を行った実績の一部です。</p>
+  <div class="section-eyebrow">Results — 設計後に何が変わったか</div>
+  <h2 class="section-title">設計が入ると、<br><span class="accent">無駄な動きが消えていく。</span></h2>
+  <p class="results-lead">現在も複数社でこの仕組みが稼働中です。以下は「無駄が多い状態」から「精度の高い接触だけが残る状態」にした実績の一部です。</p>
   <div class="results-grid">
     <div class="result-card">
       <div class="result-industry">機械設計業</div>
-      <div class="result-what">営業戦略設計 ／ ターゲットリスト構築</div>
-      <p class="result-detail">技術力があるにも関わらず新規顧客へのリーチ手段がなかった機械設計会社に対し、理想顧客の定義から営業アプローチまでを一気通貫で設計。</p>
+      <div class="result-what">Before：誰に当てればいいかわからない → After：無駄な候補を除外し、当たる可能性の高い企業だけに集中</div>
+      <p class="result-detail">技術力は高いが「どこに当てればいいかわからない」状態。無駄な候補を除外し、理想顧客に絞ったアプローチ設計を構築。「全方位に当てる」という最大の無駄がなくなった。</p>
     </div>
     <div class="result-card">
       <div class="result-industry">IoT・エッジ系ITサービス</div>
-      <div class="result-what">186社スコアリングリスト構築 ／ ゴミ排除設計</div>
-      <p class="result-detail">186社の候補企業をClaude対話型リサーチでスコアリング。「自社製品あり・エッジ/組み込み開発力確認済み」の本命115社に絞り込み、評価理由・連絡先付きで納品。</p>
+      <div class="result-what">Before：186社に闇雲アプローチ → After：71社の無駄を除外、115社に絞った精度の高い接触へ</div>
+      <p class="result-detail">186社をスコアリング。「動いていない・条件不一致」の71社をリストから除外。残り115社への集中で、無駄な接触工数が大幅に減少した。</p>
     </div>
     <div class="result-card">
       <div class="result-industry">SES・ITエンジニア派遣</div>
-      <div class="result-what">1,000社スコアリング ／ ZBフォームマーケ設計</div>
-      <p class="result-detail">1,000社を5軸でスコアリングしS/A/B/C/Dランク付け。フォームマーケティングの優先順位設計と送付戦略を構築。</p>
+      <div class="result-what">Before：1,000社に一斉送付（無駄多数） → After：Sランク優先で無駄な接触順序が消えた</div>
+      <p class="result-detail">1,000社を5軸スコアリング。優先度の低いC〜Dランクへの無駄なアプローチをなくし、S〜Aランクへの集中が可能になった。「全部当てないと不安」という状態から脱出。</p>
     </div>
     <div class="result-card">
       <div class="result-industry">無足場工法・建設</div>
-      <div class="result-what">架電スクリプト ／ 分岐フロー設計</div>
-      <p class="result-detail">アンカーレス工法という構造的制約を逆に強みとして設計。「できないこと」を入口にした分岐型架電フローで商談率を改善。</p>
+      <div class="result-what">Before：汎用トークで無駄に断られる → After：条件整理を先に行い、無駄な断られ方が減った</div>
+      <p class="result-detail">工法の制約を逆に強みとして設計。「弊社ではできません」から始まる分岐フローで、条件不一致の企業への無駄な追跡をなくし、見込み企業への商談率が上がりやすくなった。</p>
     </div>
     <div class="result-card">
       <div class="result-industry">建設業（ブランディング）</div>
-      <div class="result-what">YouTube活用 ／ ブランディング営業設計</div>
-      <p class="result-detail">施工実績をコンテンツ化し、発注担当者が「見つける」仕組みを設計。問い合わせ導線とトークスクリプトを一体で構築。</p>
+      <div class="result-what">Before：飛び込みと紹介の繰り返し（無駄多い） → After：発注担当者が自分から来る仕組みで無駄な接触が減少</div>
+      <p class="result-detail">施工実績をコンテンツ化し、問い合わせ導線を設計。こちらから無駄に当て続ける状態から、関心のある担当者が自分から来る状態に移行した。</p>
     </div>
     <div class="result-card">
       <div class="result-industry">アパレル・高齢者向けサービス</div>
-      <div class="result-what">営業パッケージ設計 ／ ターゲット仮説構築</div>
-      <p class="result-detail">老人ホーム向け洋裁教室・オーダーメイドアパレルという独自サービスの営業先定義と、施設担当者へのアプローチ設計を構築。</p>
+      <div class="result-what">Before：営業先が絞れず全方位で無駄 → After：決裁構造を把握し、無駄な接触先が明確に除外された</div>
+      <p class="result-detail">施設担当者の決裁構造を分析。「誰に当てても無駄な先」を定義することで、当たる可能性の高い接触先だけが残り、アプローチ効率が上がった。</p>
     </div>
   </div>
-  <p class="results-note">※ 守秘義務のため社名は非公開。業種・設計内容のみ掲載しています。</p>
+  <div class="story-block">
+    <div class="story-line">
+      <span class="story-step">01</span>
+      <p class="story-text"><strong>ある企業は、100件架電しても反応は2件だった。</strong><br>担当者は頑張っていた。リストも一応あった。ただ、どの企業が今動いているかは、誰も把握していなかった。</p>
+    </div>
+    <div class="story-line">
+      <span class="story-step">02</span>
+      <p class="story-text"><strong>リストを精査し、20件に絞った。</strong><br>複合シグナルで「今動いている企業」だけを残した。残り80件は、今は当てても無駄だと判断し、除外した。</p>
+    </div>
+    <div class="story-line">
+      <span class="story-step">03</span>
+      <p class="story-text"><strong>同じ時間で「当たる感触のある会話」だけが残った。</strong><br>断られ方が変わった。「今は予定がない」ではなく「ちょうど検討していた」という反応が増えた。</p>
+    </div>
+    <div class="story-line">
+      <span class="story-step">04</span>
+      <p class="story-text">受注を保証するものではない。<strong>ただ、無駄が消えたことで、営業の質が変わった。</strong>同じリソースで、当たる確率の高い接触だけができるようになった。</p>
+    </div>
+  </div>
+  <p class="results-note">※ 守秘義務のため社名は非公開。業種・変化内容のみ掲載しています。</p>
+</section>
+
+<!-- PROOF -->
+<section class="proof reveal">
+  <div class="section-eyebrow">Proof — 実際のデータ</div>
+  <h2 class="section-title">「本当に動くのか？」<br><span class="accent">実際のデータで見せる。</span></h2>
+  <div class="proof-grid">
+
+    <!-- スコアリングリスト -->
+    <div class="proof-card">
+      <div class="proof-card-header">
+        <div class="proof-dot r"></div><div class="proof-dot y"></div><div class="proof-dot g"></div>
+        <span class="proof-card-title">scoring_output_iot_client.xlsx — 実際の納品データ（抜粋）</span>
+      </div>
+      <div class="proof-card-body">
+        <div class="score-row">
+          <span class="score-rank s">S — 即アプローチ</span>
+          <span class="score-company">株式会社●●テクノ</span>
+          <span class="score-signal">採用急拡大+新製品発表</span>
+          <span class="score-pts">100pt</span>
+        </div>
+        <div class="score-row">
+          <span class="score-rank s">S — 即アプローチ</span>
+          <span class="score-company score-blur">███████株式会社</span>
+          <span class="score-signal">決算期前+展示会出展</span>
+          <span class="score-pts">95pt</span>
+        </div>
+        <div class="score-row">
+          <span class="score-rank a">A — 優先接触</span>
+          <span class="score-company score-blur">株式会社███████</span>
+          <span class="score-signal">エンジニア採用3名</span>
+          <span class="score-pts">85pt</span>
+        </div>
+        <div class="score-row">
+          <span class="score-rank a">A — 優先接触</span>
+          <span class="score-company score-blur">████システム</span>
+          <span class="score-signal">新拠点開設ニュース</span>
+          <span class="score-pts">80pt</span>
+        </div>
+        <div class="score-row">
+          <span class="score-rank b">B — 監視継続</span>
+          <span class="score-company score-blur">██████工業株式会社</span>
+          <span class="score-signal">動き少ない・再評価待ち</span>
+          <span class="score-pts">60pt</span>
+        </div>
+        <p class="proof-note">※ 実際の納品データです。社名は守秘義務により一部マスク。</p>
+      </div>
+    </div>
+
+    <!-- メール返信ログ -->
+    <div class="proof-card">
+      <div class="proof-card-header">
+        <div class="proof-dot r"></div><div class="proof-dot y"></div><div class="proof-dot g"></div>
+        <span class="proof-card-title">mail_log_2025q4.txt — 実際の返信スレッド（抜粋）</span>
+      </div>
+      <div class="proof-card-body">
+        <div class="mail-thread">
+          <div class="mail-bubble sent">
+            <div class="mail-meta">SENT ── 2025.11.14 09:22 ／ フォームマーケ送付</div>
+            貴社の直近の新製品発表を拝見し、製造パートナーをご検討のタイミングかと思い…（スクリプト本文）
+          </div>
+          <div class="mail-bubble recv">
+            <div class="mail-meta">REPLY ── 2025.11.15 14:07 ／ 購買担当者より</div>
+            ちょうど外注先を探していました。一度お話しできますか？来週ならいつでも大丈夫です。
+          </div>
+          <div class="mail-bubble sent">
+            <div class="mail-meta">SENT ── 2025.11.18 10:00 ／ フォームマーケ送付（別社）</div>
+            採用情報から開発強化中と拝見しました。射出成形での試作対応が急ぎで必要な…
+          </div>
+          <div class="mail-bubble recv">
+            <div class="mail-meta">REPLY ── 2025.11.18 16:43 ／ 技術部門担当者より</div>
+            タイミングよかったです。今月末までに見積もりが欲しいものがあります。
+          </div>
+        </div>
+        <p class="proof-note">※ 実際のやりとりです。個人情報・社名は編集済み。</p>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <!-- TERMINAL STREAM -->
@@ -1394,16 +1797,58 @@
 
 <!-- CTA -->
 <section class="cta-section reveal" id="trial">
-  <div class="cta-eyebrow">Free Diagnosis — 無料 発注タイミング診断</div>
-  <h2 class="cta-title">今のアプローチ、<br><span class="accent">無駄に当てていませんか？</span></h2>
+  <div class="cta-eyebrow">Free Diagnosis — 無料 30分診断</div>
+  <h2 class="cta-title">無駄を削るだけでも、<br><span class="accent">営業の景色は変わります。</span></h2>
+
+  <!-- ② 対象 / 非対象ブロック -->
+  <div class="fit-block">
+    <div class="fit-col no">
+      <span class="fit-label no-label">✗ &nbsp;この設計が合わない会社</span>
+      <div class="fit-item no"><span class="fit-icon">―</span><span>すでに新規開拓が安定している</span></div>
+      <div class="fit-item no"><span class="fit-icon">―</span><span>営業を属人で回し続けたい</span></div>
+      <div class="fit-item no"><span class="fit-icon">―</span><span>データや根拠で判断する気がない</span></div>
+      <div class="fit-item no"><span class="fit-icon">―</span><span>すぐに受注が欲しい（即効を期待している）</span></div>
+    </div>
+    <div class="fit-col yes">
+      <span class="fit-label yes-label">✦ &nbsp;この設計が刺さる会社</span>
+      <div class="fit-item yes"><span class="fit-icon">▶</span><span>新規開拓が止まっている・反応が薄い</span></div>
+      <div class="fit-item yes"><span class="fit-icon">▶</span><span>どこに当てるか、毎回迷っている</span></div>
+      <div class="fit-item yes"><span class="fit-icon">▶</span><span>無駄な架電・フォームを減らしたい</span></div>
+      <div class="fit-item yes"><span class="fit-icon">▶</span><span>営業の精度を上げることに投資できる</span></div>
+    </div>
+  </div>
+
+  <!-- ① 選択圧 -->
+  <div class="choice-line">
+    今のリストのまま半年続けるか、<em>30分で無駄を切るか。</em>
+  </div>
+
+  <!-- 免責＋サービス定義 -->
+  <div class="urgency-block">
+    <p><strong>このサービスは"受注を保証するもの"ではありません。</strong><br>
+    無駄なアプローチを削り、当たる確率を最大化する設計です。結果は、貴社チームの動き次第で伸ばせます。</p>
+    <p>それでも「無駄を削るだけでも価値がある」と感じるなら、まず30分の診断を受けてみてください。今のリストのどこが無駄になっているか、その場でお伝えします。</p>
+  </div>
+
+  <!-- ④ 価格の条件付き明示 -->
+  <div class="price-hint">
+    <div class="price-hint-icon">💴</div>
+    <div class="price-hint-text">
+      本体費用は<strong>案件規模に応じた数十万円〜</strong>の設計です。<br>
+      <strong>平均受注単価が数十万円以上の場合、1件の受注で回収できる設計です。</strong><br>
+      まず無料診断で「自社に合うかどうか」を確認してください。
+    </div>
+  </div>
+
   <p class="cta-sub">
     貴社の現状リストをお持ちください。<br>
-    30分の診断で「A/Bランク仕分け」と「改善ポイント」をその場でお伝えします。
+    30分で「当たる可能性がある企業」と「今は無駄な企業」を仕分けします。<br>
+    <strong style="color:var(--amber-light)">この診断だけで、明日からの無駄な架電が減ります。</strong>
   </p>
   <div class="cta-benefits">
-    <div class="cta-benefit"><span>✦</span> 持込リストそのままでOK</div>
-    <div class="cta-benefit"><span>✦</span> A/Bランク仕分け（優先企業の特定）</div>
-    <div class="cta-benefit"><span>✦</span> その場で改善ポイント提示</div>
+    <div class="cta-benefit"><span>✦</span> 今のリストをそのまま持参でOK</div>
+    <div class="cta-benefit"><span>✦</span> 無駄な企業と当たる可能性がある企業をその場で仕分け</div>
+    <div class="cta-benefit"><span>✦</span> 受注保証なし・精度向上を誠実に設計</div>
   </div>
   <form class="cta-form-full" action="https://formspree.io/f/mzdypbln" method="POST" id="diagnosisForm">
     <div class="cta-row2">
@@ -1414,11 +1859,11 @@
       <input type="email" name="email" class="cta-input" placeholder="会社メールアドレス *" required tabindex="3">
       <input type="tel" name="tel" class="cta-input" placeholder="電話番号" tabindex="4">
     </div>
-    <textarea name="issue" class="cta-input cta-textarea" placeholder="現在の営業課題（一言で）例：架電しても反応がない、リストの質が低い、等" tabindex="5"></textarea>
-    <button type="submit" class="btn-primary" style="width:100%;border:none;cursor:pointer;font-family:'Syne',sans-serif;" id="submitBtn">🔥 無料診断を申し込む</button>
-    <div id="formSuccess" style="display:none;color:#e8900a;font-size:14px;margin-top:12px;text-align:center;">送信完了しました。1営業日以内にご連絡いたします。</div>
+    <textarea name="issue" class="cta-input cta-textarea" placeholder="今の営業で一番困っていること（一言で）例：100件当てても2件しか反応がない、誰に当てればいいかわからない、エースしか受注できない" tabindex="5"></textarea>
+    <button type="submit" class="btn-primary" style="width:100%;border:none;cursor:pointer;font-family:'Syne',sans-serif;" id="submitBtn">🔥 今すぐ無料診断を申し込む（30分・完全無料）</button>
+    <div id="formSuccess" style="display:none;color:#e8900a;font-size:14px;margin-top:12px;text-align:center;">送信完了しました。1営業日以内に連絡します。診断の準備をして待っていてください。</div>
   </form>
-  <p class="cta-note">※ クレジットカード不要 ／ 強引な営業は一切行いません ／ 所要時間30分</p>
+  <p class="cta-note">※ カード不要・所要30分・強引な営業は一切しない ／ 気に入らなければそれで終わりでOKです</p>
 </section>
 
 <!-- FOOTER -->
