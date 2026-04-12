@@ -834,6 +834,30 @@
     letter-spacing: 0.05em;
   }
 
+  /* ─────── TERMINAL ─────── */
+  .terminal-section { position: relative; margin: 0; background: #0a0a0a; border-top: 1px solid rgba(232,144,10,0.2); border-bottom: 1px solid rgba(232,144,10,0.2); padding: 0; overflow: hidden; }
+  .terminal-bar { display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: #1a1a1a; border-bottom: 1px solid #2a2a2a; }
+  .terminal-dot { width: 12px; height: 12px; border-radius: 50%; }
+  .terminal-dot.red { background: #ff5f57; }
+  .terminal-dot.yellow { background: #febc2e; }
+  .terminal-dot.green { background: #28c840; }
+  .terminal-title { font-family: 'Courier New', monospace; font-size: 12px; color: #666; margin-left: 8px; }
+  .terminal-body { padding: 16px; height: 280px; overflow: hidden; position: relative; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.7; }
+  .terminal-body::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px; background: linear-gradient(to bottom, transparent, #0a0a0a); pointer-events: none; }
+  .t-line { display: block; white-space: nowrap; overflow: hidden; }
+  .t-prompt { color: #e8900a; }
+  .t-cmd { color: #f5b942; }
+  .t-comment { color: #444; }
+  .t-key { color: #569cd6; }
+  .t-val { color: #ce9178; }
+  .t-num { color: #b5cea8; }
+  .t-tag-hot { color: #28c840; font-weight: bold; }
+  .t-tag-mid { color: #febc2e; }
+  .t-tag-low { color: #666; }
+  .t-blank { color: transparent; user-select: none; }
+  .t-cursor { display: inline-block; width: 8px; height: 14px; background: #e8900a; animation: blink 1s step-end infinite; vertical-align: middle; margin-left: 2px; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
   /* ─────── RESULTS ─────── */
   .results-lead { max-width: 600px; margin: 0 auto 48px; text-align: center; font-size: 14px; color: var(--cream-dim); line-height: 1.9; }
   .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
@@ -1347,6 +1371,19 @@
   <p class="results-note">※ 守秘義務のため社名は非公開。業種・設計内容のみ掲載しています。</p>
 </section>
 
+<!-- TERMINAL -->
+<div class="terminal-section">
+  <div class="terminal-bar">
+    <div class="terminal-dot red"></div>
+    <div class="terminal-dot yellow"></div>
+    <div class="terminal-dot green"></div>
+    <span class="terminal-title">ignite-sales — prospect_scan.py — 115 companies</span>
+  </div>
+  <div class="terminal-body" id="terminalBody">
+    <span class="t-cursor"></span>
+  </div>
+</div>
+
 <!-- CTA -->
 <section class="cta-section reveal" id="trial">
   <div class="cta-eyebrow">Free Diagnosis — 無料 発注タイミング診断</div>
@@ -1394,6 +1431,63 @@
   }, { threshold: 0.12 });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  // Terminal
+  const companies = [{"name":"株式会社たけびし","score":100},{"name":"AKT｜アカサカテック","score":100},{"name":"株式会社マイクロリサーチ","score":95},{"name":"アドバリーシステム株式会社","score":95},{"name":"株式会社アイ・エル・シー","score":95},{"name":"株式会社HOKUTO","score":95},{"name":"株式会社バリッジ","score":95},{"name":"株式会社OA研究所","score":95},{"name":"株式会社リライアブルテクノロジー","score":90},{"name":"株式会社横浜アートニクス","score":90},{"name":"杉岡システム株式会社","score":90},{"name":"株式会社ベクトロジー","score":90},{"name":"岩崎通信機株式会社","score":90},{"name":"株式会社シキノハイテック","score":90},{"name":"マリモ電子工業株式会社","score":90},{"name":"アイベックステクノロジー株式会社","score":90},{"name":"株式会社昭和電気研究所","score":90},{"name":"株式会社ドルフィンシステム","score":90},{"name":"株式会社シーアイエス","score":90},{"name":"ミネベアミツミ株式会社","score":90},{"name":"アルデック・ジャパン株式会社","score":85},{"name":"株式会社ACCESS","score":85},{"name":"ヒロコン株式会社","score":85},{"name":"株式会社イー・アイ・ソル","score":85},{"name":"ディエフアイ株式会社","score":85},{"name":"インタープラン株式会社","score":85},{"name":"株式会社シーマイクロ","score":85},{"name":"日昭電器株式会社","score":85},{"name":"山京インテック株式会社","score":85},{"name":"株式会社近藤電子工業","score":85},{"name":"株式会社マイクロネット","score":85},{"name":"株式会社アドバネット","score":80},{"name":"計測ネットサービス株式会社","score":80},{"name":"CYBERDYNE","score":80},{"name":"アトラス株式会社","score":80},{"name":"株式会社レグラス","score":80},{"name":"有限会社ホワイトラビット","score":80},{"name":"株式会社アレクソン","score":80},{"name":"アイメックス株式会社","score":80},{"name":"株式会社オプティム","score":75},{"name":"タカヤ株式会社","score":75},{"name":"富士電機株式会社","score":75},{"name":"株式会社WDS","score":75},{"name":"株式会社システック","score":75},{"name":"株式会社パル技研","score":75},{"name":"コーダ電子株式会社","score":75},{"name":"株式会社大昌電子","score":75},{"name":"日本システムデザイン株式会社","score":70},{"name":"株式会社サイバーコア","score":70},{"name":"アストロデザイン株式会社","score":70},{"name":"株式会社メタテクノ","score":70},{"name":"株式会社ケーディーエス","score":70},{"name":"ニデックアドバンステクノロジー","score":70},{"name":"日本カーネルシステム株式会社","score":70},{"name":"株式会社ラプラス・システム","score":70},{"name":"PiLink株式会社","score":70},{"name":"株式会社コンテック","score":65},{"name":"IARシステムズ株式会社","score":65},{"name":"コンガテックジャパン株式会社","score":65},{"name":"センチュリー・システムズ株式会社","score":55},{"name":"株式会社サーキットデザイン","score":55},{"name":"アドバンテック株式会社","score":50},{"name":"株式会社アルファプロジェクト","score":45},{"name":"多摩川精機株式会社","score":45},{"name":"英弘精機株式会社","score":45}];
+
+  const body = document.getElementById('terminalBody');
+  if (body) {
+    const lines = [
+      () => `<span class="t-prompt">$ </span><span class="t-cmd">python3 prospect_scan.py --target manufacturing --region kansai,chugoku</span>`,
+      () => `<span class="t-comment"># Initializing scan engine...</span>`,
+      () => `<span class="t-key">loaded</span>   <span class="t-val">186 candidates</span>`,
+      () => `<span class="t-key">filter</span>   <span class="t-val">own_product=True, edge_capability=True</span>`,
+      () => `<span class="t-key">scoring</span>  <span class="t-val">5-axis weighted analysis</span>`,
+      () => `<span class="t-comment"># Scanning companies...</span>`,
+      () => `<span class="t-blank">.</span>`,
+    ];
+
+    companies.forEach((c, i) => {
+      const tag = c.score >= 85 ? `<span class="t-tag-hot">[PRIORITY]</span>` : c.score >= 70 ? `<span class="t-tag-mid">[ACTIVE  ]</span>` : `<span class="t-tag-low">[MONITOR ]</span>`;
+      lines.push(() => `${tag} <span class="t-num">${String(i+1).padStart(3,'0')}</span>  <span class="t-val">${c.name}</span>  <span class="t-key">score:<span class="t-num">${c.score}</span></span>`);
+    });
+
+    lines.push(() => `<span class="t-blank">.</span>`);
+    lines.push(() => `<span class="t-comment"># Scan complete.</span>`);
+    lines.push(() => `<span class="t-key">result</span>   <span class="t-num">115</span> <span class="t-val">companies identified</span>`);
+    lines.push(() => `<span class="t-key">priority</span> <span class="t-num">32</span> <span class="t-tag-hot">PRIORITY</span> / <span class="t-num">46</span> <span class="t-tag-mid">ACTIVE</span> / <span class="t-num">37</span> <span class="t-tag-low">MONITOR</span>`);
+    lines.push(() => `<span class="t-prompt">$ </span><span class="t-cursor"></span>`);
+
+    let idx = 0;
+    const MAX_LINES = 16;
+    const rendered = [];
+
+    function nextLine() {
+      if (idx >= lines.length) {
+        setTimeout(() => {
+          idx = 0;
+          rendered.length = 0;
+          body.innerHTML = '';
+          nextLine();
+        }, 3000);
+        return;
+      }
+      const span = document.createElement('span');
+      span.className = 't-line';
+      span.innerHTML = lines[idx]();
+      body.appendChild(span);
+      rendered.push(span);
+      if (rendered.length > MAX_LINES) {
+        const old = rendered.shift();
+        old.remove();
+      }
+      body.scrollTop = body.scrollHeight;
+      idx++;
+      const delay = idx <= 7 ? 120 : idx === lines.length - 1 ? 800 : 60;
+      setTimeout(nextLine, delay);
+    }
+    nextLine();
+  }
+
 </script>
 
 </body>
