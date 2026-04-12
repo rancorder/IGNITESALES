@@ -88,7 +88,7 @@
   .nav-cta:hover { opacity: 0.85; }
 
   /* ─────── HERO ─────── */
-  .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 120px 48px 80px; overflow: hidden; max-width: 100%; margin: 0; }
+  .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 48px 80px; overflow: hidden; max-width: 100%; margin: 0; }
 
   /* Radial ember glow */
   .hero::before {
@@ -269,16 +269,18 @@
   }
 
   /* ─────── SECTION BASE ─────── */
-  section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; box-sizing: border-box; }
+  section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; box-sizing: border-box; text-align: center; }
+
+  .section-eyebrow { font-size: 12px; letter-spacing: 0.4em; color: var(--amber); margin-bottom: 16px; text-align: center; font-family: 'Bebas Neue', sans-serif; }
 
   .section-label {
-    font-family: 'Bebas Neue', sans-serif;
     font-size: 12px;
     letter-spacing: 0.4em;
     color: var(--amber);
     margin-bottom: 20px;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
   }
   .section-label::before { content: ''; display: block; width: 28px; height: 1px; background: var(--amber); }
@@ -290,6 +292,7 @@
     line-height: 1.15;
     color: var(--white);
     max-width: 700px;
+    margin: 0 auto;
   }
 
   /* ─────── PAIN SECTION ─────── */
