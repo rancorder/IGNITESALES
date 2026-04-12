@@ -752,6 +752,7 @@
     content: '';
     position: absolute;
     inset: 0;
+    pointer-events: none;
     background: 
       radial-gradient(ellipse at 30% 50%, rgba(232,144,10,0.12) 0%, transparent 50%),
       radial-gradient(ellipse at 70% 50%, rgba(192,58,26,0.12) 0%, transparent 50%);
@@ -762,6 +763,7 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 1px;
+    pointer-events: none;
     background: linear-gradient(90deg, transparent, var(--amber), var(--ember), var(--amber), transparent);
   }
 
@@ -820,7 +822,7 @@
 
   .cta-input::placeholder { color: rgba(168,144,112,0.5); }
   .cta-input:focus { border-color: var(--amber); outline: none; }
-  .cta-form-full { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  .cta-form-full { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; position: relative; z-index: 1; }
   .cta-row2 { display: flex; gap: 12px; }
   .cta-row2 .cta-input { flex: 1; min-width: 0; }
   .cta-textarea { min-height: 80px; resize: vertical; font-family: 'Noto Sans JP', sans-serif; }
