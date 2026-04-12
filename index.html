@@ -831,28 +831,37 @@
     letter-spacing: 0.05em;
   }
 
-  /* ─────── TERMINAL ─────── */
-  .terminal-section { position: relative; margin: 0; background: #0a0a0a; border-top: 1px solid rgba(232,144,10,0.2); border-bottom: 1px solid rgba(232,144,10,0.2); padding: 0; overflow: hidden; }
-  .terminal-bar { display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: #1a1a1a; border-bottom: 1px solid #2a2a2a; }
+  /* ─────── TERMINAL STREAM ─────── */
+  .terminal-section { position: relative; margin: 0; background: #050505; border-top: 1px solid rgba(232,144,10,0.2); border-bottom: 1px solid rgba(232,144,10,0.2); }
+  .terminal-bar { display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: #111; border-bottom: 1px solid #1e1e1e; }
   .terminal-dot { width: 12px; height: 12px; border-radius: 50%; }
   .terminal-dot.red { background: #ff5f57; }
   .terminal-dot.yellow { background: #febc2e; }
   .terminal-dot.green { background: #28c840; }
-  .terminal-title { font-family: 'Courier New', monospace; font-size: 12px; color: #666; margin-left: 8px; }
-  .terminal-body { padding: 16px; height: 280px; overflow: hidden; position: relative; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.7; }
-  .terminal-body::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px; background: linear-gradient(to bottom, transparent, #0a0a0a); pointer-events: none; }
-  .t-line { display: block; white-space: nowrap; overflow: hidden; }
-  .t-prompt { color: #e8900a; }
-  .t-cmd { color: #f5b942; }
-  .t-comment { color: #444; }
-  .t-key { color: #569cd6; }
-  .t-val { color: #ce9178; }
-  .t-num { color: #b5cea8; }
-  .t-tag-hot { color: #28c840; font-weight: bold; }
-  .t-tag-mid { color: #febc2e; }
-  .t-tag-low { color: #666; }
-  .t-blank { color: transparent; user-select: none; }
-  .t-cursor { display: inline-block; width: 8px; height: 14px; background: #e8900a; animation: blink 1s step-end infinite; vertical-align: middle; margin-left: 2px; }
+  .terminal-title { font-family: 'Courier New', monospace; font-size: 12px; color: #555; margin-left: 8px; }
+  .stream-grid { display: grid; grid-template-columns: repeat(8, 1fr); height: 300px; overflow: hidden; position: relative; }
+  .stream-grid::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 60px; background: linear-gradient(to right, #050505, transparent); z-index: 3; pointer-events: none; }
+  .stream-grid::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 60px; background: linear-gradient(to left, #050505, transparent); z-index: 3; pointer-events: none; }
+  .stream-col { overflow: hidden; border-right: 1px solid rgba(232,144,10,0.04); padding: 0 6px; }
+  .stream-col:last-child { border-right: none; }
+  .stream-col-inner { display: flex; flex-direction: column; }
+  .stream-col.down .stream-col-inner { animation: sDown var(--spd,18s) linear infinite; }
+  .stream-col.up .stream-col-inner { animation: sUp var(--spd,22s) linear infinite; }
+  .stream-cell { padding: 5px 0; border-bottom: 1px solid rgba(232,144,10,0.04); font-family: 'Courier New', monospace; }
+  .stream-cell .sc-name { display: block; font-size: 9px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: 0.02em; }
+  .stream-cell .sc-meta { display: block; font-size: 8px; margin-top: 2px; opacity: 0.7; }
+  .stream-cell.s-hot .sc-name { color: #f5b942; }
+  .stream-cell.s-hot .sc-meta { color: #e8900a; }
+  .stream-cell.s-mid .sc-name { color: rgba(168,144,112,0.5); }
+  .stream-cell.s-mid .sc-meta { color: rgba(168,144,112,0.3); }
+  .stream-cell.s-low .sc-name { color: rgba(168,144,112,0.2); }
+  .stream-cell.s-low .sc-meta { color: rgba(168,144,112,0.12); }
+  .stream-footer { display: flex; justify-content: space-between; align-items: center; padding: 8px 16px; background: #0a0a0a; border-top: 1px solid #1a1a1a; font-family: 'Courier New', monospace; font-size: 10px; }
+  .sf-left { color: #28c840; }
+  .sf-right { color: #555; }
+  .sf-cursor { display: inline-block; width: 7px; height: 12px; background: #e8900a; animation: blink 1s step-end infinite; vertical-align: middle; margin-left: 4px; }
+  @keyframes sDown { 0%{transform:translateY(0)} 100%{transform:translateY(-50%)} }
+  @keyframes sUp { 0%{transform:translateY(-50%)} 100%{transform:translateY(0)} }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
   /* ─────── RESULTS ─────── */
@@ -1368,16 +1377,18 @@
   <p class="results-note">※ 守秘義務のため社名は非公開。業種・設計内容のみ掲載しています。</p>
 </section>
 
-<!-- TERMINAL -->
+<!-- TERMINAL STREAM -->
 <div class="terminal-section">
   <div class="terminal-bar">
     <div class="terminal-dot red"></div>
     <div class="terminal-dot yellow"></div>
     <div class="terminal-dot green"></div>
-    <span class="terminal-title">ignite-sales — prospect_scan.py — 115 companies</span>
+    <span class="terminal-title">ignite-sales — prospect_scan.py — 115 companies identified</span>
   </div>
-  <div class="terminal-body" id="terminalBody">
-    <span class="t-cursor"></span>
+  <div class="stream-grid" id="streamGrid"></div>
+  <div class="stream-footer">
+    <span class="sf-left">✓ scan complete — 115 / 186 qualified<span class="sf-cursor"></span></span>
+    <span class="sf-right">priority:32 &nbsp;|&nbsp; active:46 &nbsp;|&nbsp; monitor:37</span>
   </div>
 </div>
 
@@ -1428,61 +1439,39 @@
   }, { threshold: 0.12 });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  // Terminal
+  // Terminal Datastream
   const companies = [{"name":"株式会社たけびし","score":100},{"name":"AKT｜アカサカテック","score":100},{"name":"株式会社マイクロリサーチ","score":95},{"name":"アドバリーシステム株式会社","score":95},{"name":"株式会社アイ・エル・シー","score":95},{"name":"株式会社HOKUTO","score":95},{"name":"株式会社バリッジ","score":95},{"name":"株式会社OA研究所","score":95},{"name":"株式会社リライアブルテクノロジー","score":90},{"name":"株式会社横浜アートニクス","score":90},{"name":"杉岡システム株式会社","score":90},{"name":"株式会社ベクトロジー","score":90},{"name":"岩崎通信機株式会社","score":90},{"name":"株式会社シキノハイテック","score":90},{"name":"マリモ電子工業株式会社","score":90},{"name":"アイベックステクノロジー株式会社","score":90},{"name":"株式会社昭和電気研究所","score":90},{"name":"株式会社ドルフィンシステム","score":90},{"name":"株式会社シーアイエス","score":90},{"name":"ミネベアミツミ株式会社","score":90},{"name":"アルデック・ジャパン株式会社","score":85},{"name":"株式会社ACCESS","score":85},{"name":"ヒロコン株式会社","score":85},{"name":"株式会社イー・アイ・ソル","score":85},{"name":"ディエフアイ株式会社","score":85},{"name":"インタープラン株式会社","score":85},{"name":"株式会社シーマイクロ","score":85},{"name":"日昭電器株式会社","score":85},{"name":"山京インテック株式会社","score":85},{"name":"株式会社近藤電子工業","score":85},{"name":"株式会社マイクロネット","score":85},{"name":"株式会社アドバネット","score":80},{"name":"計測ネットサービス株式会社","score":80},{"name":"CYBERDYNE","score":80},{"name":"アトラス株式会社","score":80},{"name":"株式会社レグラス","score":80},{"name":"有限会社ホワイトラビット","score":80},{"name":"株式会社アレクソン","score":80},{"name":"アイメックス株式会社","score":80},{"name":"株式会社オプティム","score":75},{"name":"タカヤ株式会社","score":75},{"name":"富士電機株式会社","score":75},{"name":"株式会社WDS","score":75},{"name":"株式会社システック","score":75},{"name":"株式会社パル技研","score":75},{"name":"コーダ電子株式会社","score":75},{"name":"株式会社大昌電子","score":75},{"name":"日本システムデザイン株式会社","score":70},{"name":"株式会社サイバーコア","score":70},{"name":"アストロデザイン株式会社","score":70},{"name":"株式会社メタテクノ","score":70},{"name":"株式会社ケーディーエス","score":70},{"name":"ニデックアドバンステクノロジー","score":70},{"name":"日本カーネルシステム株式会社","score":70},{"name":"株式会社ラプラス・システム","score":70},{"name":"PiLink株式会社","score":70},{"name":"株式会社コンテック","score":65},{"name":"IARシステムズ株式会社","score":65},{"name":"コンガテックジャパン株式会社","score":65},{"name":"センチュリー・システムズ株式会社","score":55},{"name":"株式会社サーキットデザイン","score":55},{"name":"アドバンテック株式会社","score":50},{"name":"株式会社アルファプロジェクト","score":45},{"name":"多摩川精機株式会社","score":45},{"name":"英弘精機株式会社","score":45}];
 
-  const body = document.getElementById('terminalBody');
-  if (body) {
-    const lines = [
-      () => `<span class="t-prompt">$ </span><span class="t-cmd">python3 prospect_scan.py --target manufacturing --region kansai,chugoku</span>`,
-      () => `<span class="t-comment"># Initializing scan engine...</span>`,
-      () => `<span class="t-key">loaded</span>   <span class="t-val">186 candidates</span>`,
-      () => `<span class="t-key">filter</span>   <span class="t-val">own_product=True, edge_capability=True</span>`,
-      () => `<span class="t-key">scoring</span>  <span class="t-val">5-axis weighted analysis</span>`,
-      () => `<span class="t-comment"># Scanning companies...</span>`,
-      () => `<span class="t-blank">.</span>`,
-    ];
+  function sCls(s){ return s>=85?'s-hot':s>=65?'s-mid':'s-low'; }
+  function sMeta(s){ return s>=85?`[PRIORITY] ${s}pt`:s>=65?`[ACTIVE__] ${s}pt`:`[MONITOR_] ${s}pt`; }
 
-    companies.forEach((c, i) => {
-      const tag = c.score >= 85 ? `<span class="t-tag-hot">[PRIORITY]</span>` : c.score >= 70 ? `<span class="t-tag-mid">[ACTIVE  ]</span>` : `<span class="t-tag-low">[MONITOR ]</span>`;
-      lines.push(() => `${tag} <span class="t-num">${String(i+1).padStart(3,'0')}</span>  <span class="t-val">${c.name}</span>  <span class="t-key">score:<span class="t-num">${c.score}</span></span>`);
+  function buildStreamCol(items, dir, spd) {
+    const col = document.createElement('div');
+    col.className = `stream-col ${dir}`;
+    col.style.setProperty('--spd', spd+'s');
+    const inner = document.createElement('div');
+    inner.className = 'stream-col-inner';
+    [...items,...items].forEach(c => {
+      const cell = document.createElement('div');
+      cell.className = `stream-cell ${sCls(c.score)}`;
+      cell.innerHTML = `<span class="sc-name">${c.name}</span><span class="sc-meta">${sMeta(c.score)}</span>`;
+      inner.appendChild(cell);
     });
+    col.appendChild(inner);
+    return col;
+  }
 
-    lines.push(() => `<span class="t-blank">.</span>`);
-    lines.push(() => `<span class="t-comment"># Scan complete.</span>`);
-    lines.push(() => `<span class="t-key">result</span>   <span class="t-num">115</span> <span class="t-val">companies identified</span>`);
-    lines.push(() => `<span class="t-key">priority</span> <span class="t-num">32</span> <span class="t-tag-hot">PRIORITY</span> / <span class="t-num">46</span> <span class="t-tag-mid">ACTIVE</span> / <span class="t-num">37</span> <span class="t-tag-low">MONITOR</span>`);
-    lines.push(() => `<span class="t-prompt">$ </span><span class="t-cursor"></span>`);
-
-    let idx = 0;
-    const MAX_LINES = 16;
-    const rendered = [];
-
-    function nextLine() {
-      if (idx >= lines.length) {
-        setTimeout(() => {
-          idx = 0;
-          rendered.length = 0;
-          body.innerHTML = '';
-          nextLine();
-        }, 3000);
-        return;
-      }
-      const span = document.createElement('span');
-      span.className = 't-line';
-      span.innerHTML = lines[idx]();
-      body.appendChild(span);
-      rendered.push(span);
-      if (rendered.length > MAX_LINES) {
-        const old = rendered.shift();
-        old.remove();
-      }
-      body.scrollTop = body.scrollHeight;
-      idx++;
-      const delay = idx <= 7 ? 120 : idx === lines.length - 1 ? 800 : 60;
-      setTimeout(nextLine, delay);
+  const grid = document.getElementById('streamGrid');
+  if (grid) {
+    const COL = 8;
+    const per = Math.ceil(companies.length / COL);
+    const spds = [14,20,16,24,13,19,17,22];
+    const dirs = ['down','up','down','up','down','up','down','up'];
+    for (let i=0; i<COL; i++) {
+      const slice = companies.slice(i*per, (i+1)*per);
+      if (!slice.length) continue;
+      grid.appendChild(buildStreamCol(slice, dirs[i], spds[i]));
     }
-    nextLine();
   }
 
 </script>
