@@ -820,7 +820,11 @@
   }
 
   .cta-input::placeholder { color: rgba(168,144,112,0.5); }
-  .cta-input:focus { border-color: var(--amber); }
+  .cta-input:focus { border-color: var(--amber); outline: none; }
+  .cta-form-full { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  .cta-row2 { display: flex; gap: 12px; }
+  .cta-row2 .cta-input { flex: 1; min-width: 0; }
+  .cta-textarea { min-height: 80px; resize: vertical; font-family: 'Noto Sans JP', sans-serif; }
 
   .cta-note {
     margin-top: 20px;
@@ -1241,10 +1245,19 @@
     <div class="cta-benefit"><span>✦</span> A/Bランク仕分け（優先企業の特定）</div>
     <div class="cta-benefit"><span>✦</span> その場で改善ポイント提示</div>
   </div>
-  <div class="cta-form">
-    <input type="email" class="cta-input" placeholder="会社メールアドレスを入力">
-    <a href="#" class="btn-primary" style="white-space:nowrap;">🔥 無料診断を申し込む</a>
-  </div>
+  <form class="cta-form-full" action="https://formspree.io/f/mzdypbln" method="POST" id="diagnosisForm">
+    <div class="cta-row2">
+      <input type="text" name="company" class="cta-input" placeholder="会社名 *" required>
+      <input type="text" name="name" class="cta-input" placeholder="お名前 *" required>
+    </div>
+    <div class="cta-row2">
+      <input type="email" name="email" class="cta-input" placeholder="会社メールアドレス *" required>
+      <input type="tel" name="tel" class="cta-input" placeholder="電話番号">
+    </div>
+    <textarea name="issue" class="cta-input cta-textarea" placeholder="現在の営業課題（一言で）例：架電しても反応がない、リストの質が低い、等"></textarea>
+    <button type="submit" class="btn-primary" style="width:100%;border:none;cursor:pointer;font-family:'Syne',sans-serif;" id="submitBtn">🔥 無料診断を申し込む</button>
+    <div id="formSuccess" style="display:none;color:#e8900a;font-size:14px;margin-top:12px;text-align:center;">送信完了しました。1営業日以内にご連絡いたします。</div>
+  </form>
   <p class="cta-note">※ クレジットカード不要 ／ 強引な営業は一切行いません ／ 所要時間30分</p>
 </section>
 
