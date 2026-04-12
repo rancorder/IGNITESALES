@@ -155,10 +155,9 @@
   }
 
   .hero-headline .accent {
-    background: linear-gradient(90deg, var(--amber-light), var(--ember-light));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #f5b942;
+    -webkit-text-fill-color: #f5b942;
+    text-shadow: 0 0 40px rgba(245,185,66,0.4), 0 2px 8px rgba(0,0,0,0.8);
   }
 
   .hero-sub {
@@ -833,6 +832,16 @@
     letter-spacing: 0.05em;
   }
 
+  /* ─────── RESULTS ─────── */
+  .results-lead { max-width: 600px; margin: 0 auto 48px; text-align: center; font-size: 14px; color: var(--cream-dim); line-height: 1.9; }
+  .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .result-card { border: 1px solid var(--border); padding: 24px 20px; transition: border-color 0.2s; }
+  .result-card:hover { border-color: var(--border-strong); }
+  .result-industry { font-size: 11px; letter-spacing: 0.1em; color: var(--amber); margin-bottom: 8px; text-transform: uppercase; }
+  .result-what { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 500; color: var(--cream); margin-bottom: 12px; line-height: 1.5; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .result-detail { font-size: 13px; color: var(--cream-dim); line-height: 1.8; }
+  .results-note { text-align: center; font-size: 11px; color: rgba(168,144,112,0.4); letter-spacing: 0.05em; }
+
   /* ─────── PROFILE ─────── */
   .profile-wrap { max-width: 720px; margin: 0 auto; }
   .profile-card { display: flex; align-items: center; gap: 20px; margin-bottom: 40px; padding: 24px; border: 1px solid var(--border-strong); }
@@ -1009,6 +1018,7 @@
     .package-grid { grid-template-columns: 1fr; }
     .flow-steps { flex-direction: column; }
     .flow-steps::before { display: none; }
+    .results-grid { grid-template-columns: 1fr; }
     .cta-form { flex-direction: column; }
     .profile-stats { grid-template-columns: repeat(3, 1fr); gap: 10px; }
     .stat-num { font-size: 28px; }
@@ -1264,7 +1274,7 @@
     <div class="profile-card">
       <div class="profile-avatar">M</div>
       <div class="profile-info">
-        <p class="profile-name">増部 英樹 <span class="profile-en">Hideki Masube</span></p>
+        <p class="profile-name">益部 英樹 <span class="profile-en">Hideki Masube</span></p>
         <p class="profile-title">開発シグナル×発注タイミング特定｜製造業営業を構造から変える</p>
         <p class="profile-location">日本 · 広島県</p>
         <a href="https://www.linkedin.com/in/hideki-masube-6b0a713a0/" target="_blank" class="profile-linkedin">LinkedIn プロフィール →</a>
@@ -1293,6 +1303,46 @@
       <p>現在は製造業専門の営業PMOとして複数社を支援しながら、IGNITE SALESを通じて同じ仕組みを広げています。</p>
     </div>
   </div>
+</section>
+
+<!-- RESULTS -->
+<section class="section reveal" id="results">
+  <div class="section-eyebrow">Results — 営業支援実績</div>
+  <h2 class="section-title">構造を変えると、<br><span class="accent">営業の動き方が変わる。</span></h2>
+  <p class="results-lead">業種を問わず「営業の設計がない」という課題は共通しています。以下はその設計を行った実績の一部です。</p>
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="result-industry">機械設計業</div>
+      <div class="result-what">営業戦略設計 ／ ターゲットリスト構築</div>
+      <p class="result-detail">技術力があるにも関わらず新規顧客へのリーチ手段がなかった機械設計会社に対し、理想顧客の定義から営業アプローチまでを一気通貫で設計。</p>
+    </div>
+    <div class="result-card">
+      <div class="result-industry">IoT・エッジ系ITサービス</div>
+      <div class="result-what">186社スコアリングリスト構築 ／ ゴミ排除設計</div>
+      <p class="result-detail">186社の候補企業をClaude対話型リサーチでスコアリング。「自社製品あり・エッジ/組み込み開発力確認済み」の本命115社に絞り込み、評価理由・連絡先付きで納品。</p>
+    </div>
+    <div class="result-card">
+      <div class="result-industry">SES・ITエンジニア派遣</div>
+      <div class="result-what">1,000社スコアリング ／ ZBフォームマーケ設計</div>
+      <p class="result-detail">1,000社を5軸でスコアリングしS/A/B/C/Dランク付け。フォームマーケティングの優先順位設計と送付戦略を構築。</p>
+    </div>
+    <div class="result-card">
+      <div class="result-industry">無足場工法・建設</div>
+      <div class="result-what">架電スクリプト ／ 分岐フロー設計</div>
+      <p class="result-detail">アンカーレス工法という構造的制約を逆に強みとして設計。「できないこと」を入口にした分岐型架電フローで商談率を改善。</p>
+    </div>
+    <div class="result-card">
+      <div class="result-industry">建設業（ブランディング）</div>
+      <div class="result-what">YouTube活用 ／ ブランディング営業設計</div>
+      <p class="result-detail">施工実績をコンテンツ化し、発注担当者が「見つける」仕組みを設計。問い合わせ導線とトークスクリプトを一体で構築。</p>
+    </div>
+    <div class="result-card">
+      <div class="result-industry">アパレル・高齢者向けサービス</div>
+      <div class="result-what">営業パッケージ設計 ／ ターゲット仮説構築</div>
+      <p class="result-detail">老人ホーム向け洋裁教室・オーダーメイドアパレルという独自サービスの営業先定義と、施設担当者へのアプローチ設計を構築。</p>
+    </div>
+  </div>
+  <p class="results-note">※ 守秘義務のため社名は非公開。業種・設計内容のみ掲載しています。</p>
 </section>
 
 <!-- CTA -->
