@@ -1028,8 +1028,8 @@
   /* Scroll reveal */
   .reveal {
     opacity: 0;
-    transform: translateY(32px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
   .reveal.visible {
     opacity: 1;
@@ -1702,7 +1702,7 @@
 </section>
 
 <!-- PROOF -->
-<section class="proof reveal">
+<section class="proof reveal" style="opacity:1;transform:none;">
   <div class="section-eyebrow">Proof — 実際のデータ</div>
   <h2 class="section-title">「本当に動くのか？」<br><span class="accent">実際のデータで見せる。</span></h2>
   <div class="proof-grid">
@@ -1796,7 +1796,7 @@
 </div>
 
 <!-- CTA -->
-<section class="cta-section reveal" id="trial">
+<section class="cta-section reveal" id="trial" style="opacity:1;transform:none;">
   <div class="cta-eyebrow">Free Diagnosis — 無料 30分診断</div>
   <h2 class="cta-title">無駄を削るだけでも、<br><span class="accent">営業の景色は変わります。</span></h2>
 
@@ -1873,17 +1873,53 @@
 </footer>
 
 <script>
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
+  // Scroll reveal — モバイル完全対応版
+  function activateReveal(el) {
+    el.classList.add('visible');
+  }
+
+  // ① IntersectionObserver（threshold:0、早めのrootMargin）
+  const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
+        activateReveal(e.target);
+        revealObserver.unobserve(e.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, {
+    threshold: 0,
+    rootMargin: '0px 0px -40px 0px'
+  });
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // ② ページ読み込み時点で既にビューポート内にある要素を即時発火
+  function checkVisible() {
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        activateReveal(el);
+      }
+    });
+  }
+
+  // ③ スクロールの末尾に近づいたら残り全要素を強制発火（モバイルの取りこぼし対策）
+  function checkScrollEnd() {
+    const scrollBottom = window.scrollY + window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+    if (docHeight - scrollBottom < 200) {
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => activateReveal(el));
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    checkVisible();
+    checkScrollEnd();
+  }, { passive: true });
+
+  // 初回チェック
+  window.addEventListener('load', checkVisible);
+  document.addEventListener('DOMContentLoaded', checkVisible);
   // Terminal Datastream
   const companies = [{"name":"株式会社たけびし","score":100},{"name":"AKT｜アカサカテック","score":100},{"name":"株式会社マイクロリサーチ","score":95},{"name":"アドバリーシステム株式会社","score":95},{"name":"株式会社アイ・エル・シー","score":95},{"name":"株式会社HOKUTO","score":95},{"name":"株式会社バリッジ","score":95},{"name":"株式会社OA研究所","score":95},{"name":"株式会社リライアブルテクノロジー","score":90},{"name":"株式会社横浜アートニクス","score":90},{"name":"杉岡システム株式会社","score":90},{"name":"株式会社ベクトロジー","score":90},{"name":"岩崎通信機株式会社","score":90},{"name":"株式会社シキノハイテック","score":90},{"name":"マリモ電子工業株式会社","score":90},{"name":"アイベックステクノロジー株式会社","score":90},{"name":"株式会社昭和電気研究所","score":90},{"name":"株式会社ドルフィンシステム","score":90},{"name":"株式会社シーアイエス","score":90},{"name":"ミネベアミツミ株式会社","score":90},{"name":"アルデック・ジャパン株式会社","score":85},{"name":"株式会社ACCESS","score":85},{"name":"ヒロコン株式会社","score":85},{"name":"株式会社イー・アイ・ソル","score":85},{"name":"ディエフアイ株式会社","score":85},{"name":"インタープラン株式会社","score":85},{"name":"株式会社シーマイクロ","score":85},{"name":"日昭電器株式会社","score":85},{"name":"山京インテック株式会社","score":85},{"name":"株式会社近藤電子工業","score":85},{"name":"株式会社マイクロネット","score":85},{"name":"株式会社アドバネット","score":80},{"name":"計測ネットサービス株式会社","score":80},{"name":"CYBERDYNE","score":80},{"name":"アトラス株式会社","score":80},{"name":"株式会社レグラス","score":80},{"name":"有限会社ホワイトラビット","score":80},{"name":"株式会社アレクソン","score":80},{"name":"アイメックス株式会社","score":80},{"name":"株式会社オプティム","score":75},{"name":"タカヤ株式会社","score":75},{"name":"富士電機株式会社","score":75},{"name":"株式会社WDS","score":75},{"name":"株式会社システック","score":75},{"name":"株式会社パル技研","score":75},{"name":"コーダ電子株式会社","score":75},{"name":"株式会社大昌電子","score":75},{"name":"日本システムデザイン株式会社","score":70},{"name":"株式会社サイバーコア","score":70},{"name":"アストロデザイン株式会社","score":70},{"name":"株式会社メタテクノ","score":70},{"name":"株式会社ケーディーエス","score":70},{"name":"ニデックアドバンステクノロジー","score":70},{"name":"日本カーネルシステム株式会社","score":70},{"name":"株式会社ラプラス・システム","score":70},{"name":"PiLink株式会社","score":70},{"name":"株式会社コンテック","score":65},{"name":"IARシステムズ株式会社","score":65},{"name":"コンガテックジャパン株式会社","score":65},{"name":"センチュリー・システムズ株式会社","score":55},{"name":"株式会社サーキットデザイン","score":55},{"name":"アドバンテック株式会社","score":50},{"name":"株式会社アルファプロジェクト","score":45},{"name":"多摩川精機株式会社","score":45},{"name":"英弘精機株式会社","score":45}];
 
