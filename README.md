@@ -1,41 +1,31 @@
-# IGNITE SALES — LP
+# IGNITE SALES — LP / Sales Verification OS
 
-BtoB営業支援サービスのランディングページ。
+BtoB営業支援LPに、Sales Verification OS の土台を追加したリポジトリです。
 
-## ファイル構成
+## Added
 
-```
-ignite-sales/
-├── public/
-│   └── index.html   # LP本体
-├── vercel.json       # Vercelデプロイ設定
-├── .gitignore
-└── README.md
-```
+- `AGENTS.md`: Codex rules
+- `docs/`: architecture and retrieval guide
+- `templates/`: markdown templates
+- `schemas/`: JSON schema
+- `site/`: Vercel static viewer
 
-## デプロイ手順
+## Vercel
 
-### 1. GitHubにプッシュ
+`vercel.json` uses:
 
-```bash
-git init
-git add .
-git commit -m "initial commit"
-git branch -M main
-git remote add origin https://github.com/<あなたのユーザー名>/ignite-sales.git
-git push -u origin main
+```json
+{
+  "outputDirectory": "site"
+}
 ```
 
-### 2. Vercelと連携
+## Codex prompt
 
-1. [vercel.com](https://vercel.com) にログイン
-2. **Add New → Project** をクリック
-3. GitHubリポジトリ `ignite-sales` をインポート
-4. **Framework Preset: Other** のまま変更不要
-5. **Deploy** をクリック
+```text
+Read AGENTS.md and the target project logs. Separate FACT, ANALYSIS, NEXT, and JUDGMENT.
+```
 
-→ 自動でビルド＆デプロイされます。
+## Security
 
-### 3. 独自ドメイン設定（任意）
-
-Vercel Dashboard → Project → Settings → Domains から追加できます。
+This repository is public. Keep real customer notes in a private repository.
