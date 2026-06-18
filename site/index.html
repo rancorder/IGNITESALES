@@ -4,9 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sales Verification OS</title>
+  <style>
+    body{margin:0;background:#0d0a07;color:#f7efe2;font-family:system-ui,sans-serif;line-height:1.8}.shell{max-width:1040px;margin:auto;padding:56px 20px}.eyebrow{color:#f5b942;letter-spacing:.25em;font-size:12px}h1{font-size:clamp(34px,6vw,68px);line-height:1.08}.lead{color:#ad987b}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:28px}.card{border:1px solid rgba(232,144,10,.24);border-radius:18px;padding:22px;background:rgba(255,255,255,.04)}code,pre{color:#f5b942;white-space:pre-wrap}.tag{display:inline-block;border:1px solid rgba(232,144,10,.24);border-radius:999px;padding:2px 8px;margin:2px;color:#f5b942;font-size:12px}
+  </style>
 </head>
 <body>
-  <h1>Sales Verification OS</h1>
-  <p><a href="./log-os/">Open dashboard</a></p>
+  <main class="shell">
+    <p class="eyebrow">SALES VERIFICATION OS</p>
+    <h1>案件ログを、Codexが取り出せる営業OSへ。</h1>
+    <p class="lead">仮説・実行・結果・差分・次回修正を案件別に蓄積する静的ビューア。公開環境ではサンプルと匿名化済み要約のみを表示します。</p>
+    <section class="grid">
+      <article class="card"><h2>01. Store</h2><p>案件ごとにMarkdownログを保存。FACT / ANALYSIS / NEXT / JUDGMENTを分離。</p><span class="tag">projects</span><span class="tag">templates</span></article>
+      <article class="card"><h2>02. Retrieve</h2><p>CodexはAGENTS.mdと対象案件ログを読み、商談FB・定例報告・台本修正へ変換。</p><span class="tag">codex</span><span class="tag">AGENTS.md</span></article>
+      <article class="card"><h2>03. Verify</h2><p>事前仮説と現実の差分を残し、次回の問い・資料・運用へ戻す。</p><span class="tag">CAPD</span><span class="tag">sales-os</span></article>
+    </section>
+    <section class="card" style="margin-top:18px"><h2>Codex Prompt</h2><pre>このrepoのAGENTS.mdに従って、対象案件のprojects配下ログを読み、FACT / ANALYSIS / NEXT / JUDGMENTを分けて次回アクションを作成して。</pre></section>
+  </main>
 </body>
 </html>
