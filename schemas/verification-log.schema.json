@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Sales Verification Log",
+  "type": "object",
+  "required": ["id", "project_id", "date", "log_type", "visibility", "title", "fact", "analysis", "next", "judgment"],
+  "properties": {
+    "id": { "type": "string" },
+    "project_id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "date": { "type": "string", "format": "date" },
+    "log_type": {
+      "type": "string",
+      "enum": ["meeting-verification", "call-kpi-analysis", "sales-feedback", "customer-report", "script-branch", "weekly-report"]
+    },
+    "visibility": {
+      "type": "string",
+      "enum": ["internal", "sanitized-public", "customer-facing"]
+    },
+    "title": { "type": "string" },
+    "summary": { "type": "string" },
+    "fact": { "type": "array", "items": { "type": "string" } },
+    "analysis": { "type": "array", "items": { "type": "string" } },
+    "hypothesis_check": {
+      "type": "object",
+      "properties": {
+        "hit": { "type": "array", "items": { "type": "string" } },
+        "miss": { "type": "array", "items": { "type": "string" } },
+        "unexpected": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "next": { "type": "array", "items": { "type": "string" } },
+    "judgment": {
+      "type": "object",
+      "properties": {
+        "temperature": { "type": "string" },
+        "decision_structure": { "type": "string" },
+        "budget": { "type": "string" },
+        "timing": { "type": "string" },
+        "next_action": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "reflection": {
+      "type": "object",
+      "properties": {
+        "material_update": { "type": "array", "items": { "type": "string" } },
+        "script_update": { "type": "array", "items": { "type": "string" } },
+        "report_update": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "tags": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}
